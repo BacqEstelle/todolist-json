@@ -1,9 +1,9 @@
 <?php
 function Sanatize($sanatize) {
-  $sanatize = filter_var($sanatize, FILTER_SANITIZE_STRING); // filter_var — Filtre une variable avec un filtre spécifique -- FILTER_SANITIZE_STRING Supprime tous les tags HTML.
-  $sanatize = trim($sanatize); // trim — Supprime les espaces (ou d'autres caractères) en début et fin de chaîne.
-  $sanatize = stripslashes($sanatize); // stripslashes — Supprime les antislashs d'une chaîne.
-  // $sanatize = htmlspecialchars($sanatize); //htmlspecialchars — Convertit les caractères spéciaux en entités HTML.
+  $sanatize = filter_var($sanatize, FILTER_SANITIZE_STRING);
+  $sanatize = trim($sanatize); 
+  $sanatize = stripslashes($sanatize); 
+
   return $sanatize;
 }
 function launchTodo() {
@@ -11,7 +11,7 @@ function launchTodo() {
   $json = json_decode($json, true);
   foreach ($json as $key => $value) {
     if ($json[$key]["do"] == false) {
-    echo '<div id="draggable"><label for="' . $value['tache'] . '"><input type="checkbox" name="todo[]" value="' . $value['tache'] . '" id="' . $value['tache'] . '">' . $value['tache'] . '</label></div>';
+    echo '<li><label for="' . $value['tache'] . '"><input onclick="OnChangeCheckbox (this)" type="checkbox" name="todo[]" value="' . $value['tache'] . '" id="test">' . $value['tache'] . '</label></li>';
     }
   }
 }

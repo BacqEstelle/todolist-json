@@ -1,0 +1,50 @@
+body{
+    padding-left : 5%;
+    padding-right: 5%;
+}
+section{
+    display: grid;
+    padding: 5%;
+    border : 4px solid #A8EB12;
+}
+h1{
+    padding: 2%;
+    border-bottom : 4px wave #A8EB12;
+    /* background-image: linear-gradient(to bottom, #a4c4b7, #8dd2a8, #84de8c, #8ee661, #a8eb12); */
+    text-align: center;
+}
+.contenant{
+    display: grid;
+    max-width: 30%;
+    padding-left: 35%;
+    padding-right: 35%;
+}
+.a-faire{
+    grid-column: 1;
+    grid-row: 2;
+}
+.archive{
+    grid-column: 2;
+    grid-row: 2;
+}
+.add{
+    text-align: center;
+}
+
+.drag-sort-enable{
+    list-style: none;
+    padding-left: 0;
+}
+#save{
+    display: none;
+}
+li.drag-sort-active {
+    background: transparent;
+    color: transparent;
+    border: 1px solid #4ca1af;
+  }
+  
+  span.drag-sort-active {
+    background: transparent;
+    color: transparent;
+  }

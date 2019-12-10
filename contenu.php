@@ -6,10 +6,17 @@ function launchDo() {
   $json = json_decode($json, true);
   foreach ($json as $key => $value) {
     if ($json[$key]["do"] == true) {
-      echo '<div id="draggable"><label for="' . $value['tache'] . '"><input type="checkbox" name="todo[]" value="' . $value['tache'] . '" id="' . $value['tache'] . '"><span style="text-decoration: line-through;">' . $value['tache'] . '</span></label></div>';
+      echo '<div><label for="' . $value['tache'] . '"><input type="checkbox" name="todo[]" value="' . $value['tache'] . '" id="' . $value['tache'] . '"><span style="text-decoration: line-through;">' . $value['tache'] . '</span></label></div>';
     }
   }
 }
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST["launchReset"])) {
+  $resetJson = "[]";
+  file_put_contents('todo.json', $resetJson);
+}
+
 
 
 if ( $_SERVER["REQUEST_METHOD"] == "POST" AND isset($_POST["save"]) AND !empty($_POST['todo']) ) {
@@ -26,4 +33,5 @@ $search = $_POST["todo"];
     file_put_contents('todo.json', $json);
     header("location: index.php");
   }
+
 ?>
