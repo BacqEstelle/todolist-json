@@ -1,13 +1,23 @@
 
-
+// function 
 function OnChangeCheckbox (checkbox) {
     if (checkbox.checked) {
 
       document.getElementById("save").style.display = "block";
-
            
     }else {
       document.getElementById("save").style.display = "none";
+
+    }
+}
+
+function OnChangeResetCheckbox (checkbox) {
+    if (checkbox.checked) {
+
+      document.getElementById("reset").style.display = "block";
+           
+    }else {
+      document.getElementById("reset").style.display = "none";
 
     }
 }

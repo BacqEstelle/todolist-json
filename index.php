@@ -5,11 +5,13 @@
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>ToDoList</title>
+     
      <link rel="stylesheet" href="assets/css/style.css">
   </head>
   <body>
     <?php include("formulaire.php");?>
     <?php include("contenu.php"); ?>
+    <?php include ("reset.php"); ?>
     <section>
             <form class="dropper" action="index.php" method="post">
                 <h1>To do list</h1>

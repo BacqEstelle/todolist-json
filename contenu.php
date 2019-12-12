@@ -6,16 +6,12 @@ function launchDo() {
   $json = json_decode($json, true);
   foreach ($json as $key => $value) {
     if ($json[$key]["do"] == true) {
-      echo '<div><label for="' . $value['tache'] . '"><input type="checkbox" name="todo[]" value="' . $value['tache'] . '" id="' . $value['tache'] . '"><span style="text-decoration: line-through;">' . $value['tache'] . '</span></label></div>';
-    }
+      echo '<div><label for="' . $value['tache'] . '"><input onclick="OnChangeResetCheckbox (this)" type="checkbox" name="todo[]" value="' . $value['tache'] . '" id="' . $value['tache'] . '"><span style="text-decoration: line-through;">' . $value['tache'] . '</span></label></div>';
+    }  
   }
 }
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST["launchReset"])) {
-  $resetJson = "[]";
-  file_put_contents('todo.json', $resetJson);
-}
 
 
 
@@ -24,14 +20,17 @@ $json = file_get_contents('todo.json');
 $json = json_decode($json, true);
 $search = $_POST["todo"];
     for ($init = 0; $init < count($json); $init ++){
-        if (in_array($json[$init]['tache'], $search)){ 
-                                                    
-          $json[$init]['do'] = true;                
-        }
+      if (in_array($json[$init]['tache'], $search)){ 
+                                                  
+        $json[$init]['do'] = true;                
+      }
     }
+ 
+
+    
     $json = json_encode($json, JSON_PRETTY_PRINT);
     file_put_contents('todo.json', $json);
     header("location: index.php");
-  }
+}
 
 ?>

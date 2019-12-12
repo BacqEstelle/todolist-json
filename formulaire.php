@@ -11,7 +11,7 @@ function launchTodo() {
   $json = json_decode($json, true);
   foreach ($json as $key => $value) {
     if ($json[$key]["do"] == false) {
-    echo '<li><label for="' . $value['tache'] . '"><input onclick="OnChangeCheckbox (this)" type="checkbox" name="todo[]" value="' . $value['tache'] . '" id="test">' . $value['tache'] . '</label></li>';
+    echo '<div class="collection-item"><label for="' . $value['tache'] . '"><input onclick="OnChangeCheckbox (this)" type="checkbox" name="todo[]" value="' . $value['tache'] . '" id="test">' . $value['tache'] . '</label></div>';
     }
   }
 }
@@ -21,7 +21,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" AND isset($_POST["add"]) ) {
   }
   else {
   $sanatizeActive = Sanatize($_POST["addToDo"]); 
-  $todo = array();
+  $todo = array ();
   $todo["tache"] = $sanatizeActive;
   $todo["do"] = false;
   $json = file_get_contents('todo.json');

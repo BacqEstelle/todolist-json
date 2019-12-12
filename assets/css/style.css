@@ -19,23 +19,25 @@ h1{
     padding-left: 35%;
     padding-right: 35%;
 }
+.add{
+
+    text-align: center;
+}
 .a-faire{
-    grid-column: 1;
-    grid-row: 2;
+    grid-column : 1;
+    grid-row: 1;
 }
 .archive{
     grid-column: 2;
-    grid-row: 2;
+    grid-row: 1;
 }
-.add{
-    text-align: center;
-}
-
 .drag-sort-enable{
-    list-style: none;
     padding-left: 0;
 }
 #save{
+    display: none;
+}
+#reset{
     display: none;
 }
 li.drag-sort-active {
