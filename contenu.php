@@ -6,7 +6,7 @@ function launchDo() {
   $json = json_decode($json, true);
   foreach ($json as $key => $value) {
     if ($json[$key]["do"] == true) {
-      echo '<div><label for="' . $value['tache'] . '"><input onclick="OnChangeResetCheckbox (this)" type="checkbox" name="todo[]" value="' . $value['tache'] . '" id="' . $value['tache'] . '"><span style="text-decoration: line-through;">' . $value['tache'] . '</span></label></div>';
+      echo '<div><label for="' . $value['tache'] . '"><input class="checkboxCustom" onclick="OnChangeResetCheckbox (this)" type="checkbox" name="todo[]" value="' . $value['tache'] . '" id="' . $value['tache'] . '"><span  style="text-decoration: line-through;">' . $value['tache'] . '</span></label></div>';
     }  
   }
 }
