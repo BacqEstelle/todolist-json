@@ -36,7 +36,6 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" AND isset($_POST["add"]) ) {
 
         $todo["tache"] = $sanatizeActive;
         $todo["do"] = false;
-
         $json[] = $todo;
         $json = json_encode($json, JSON_PRETTY_PRINT);
         file_put_contents('todo.json', $json);

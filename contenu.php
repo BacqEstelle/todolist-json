@@ -30,7 +30,6 @@ $search = $_POST["todo"];
     
     $json = json_encode($json, JSON_PRETTY_PRINT);
     file_put_contents('todo.json', $json);
-    header("location: index.php");
 }
 
 ?>

@@ -1,8 +1,48 @@
 
-let tableau = [];
-console.log (tableau);
 let update = [];
-console.log (update);
+let tableau = []; 
+
+
+let tableauDo = [];
+let tableauFinal= [];
+
+console.log (tableau);
+console.log (tableauDo);
+
+  // update = Array.from(document.querySelectorAll('li'));
+  // for(let i = 0; i< update.length; i++){
+  //   console.log(update[i]['innerText']);
+  //     update[i] = {
+  //     tache: update[i]['innerText'],
+  //     do: false
+  //     };
+
+
+
+  // }
+
+
+
+
+
+  
+
+// function json() {
+
+//   let data = new FormData();
+//   data.append("json", JSON.stringify(jsonObjects));
+//   fetch("ajax.php", {method: "POST", body: data})
+//       .then((res) => res.text())
+//       .then((data) => console.log(data));
+// };
+
+
+
+
+
+
+
+
 
 // function mise (){
 //   update = [];
@@ -46,11 +86,12 @@ function myFunction(arr) {
     // }
 
     if (arr[i].do == false){
-      tableau.push(arr[i].tache);
+      tableau.push(arr[i]);
     }
 
     if (arr[i].do == true) {
-    out += '<div><label for="' + arr[i].tache + '"><input class="checkboxCustom" onclick="OnChangeResetCheckbox (this)" type="checkbox" name="todo[]" value="'+ arr[i].tache +'" id="'+ arr[i].tache +'"><span style="text-decoration: line-through;">'+ arr[i].tache +'</span></label></div>';
+    out += '<div id=do><label for="' + arr[i].tache + '"><input class="checkboxCustom" onclick="OnChangeResetCheckbox (this)" type="checkbox" name="todo[]" value="'+ arr[i].tache +'" id="'+ arr[i].tache +'"><span style="text-decoration: line-through;">'+ arr[i].tache +'</span></label></div>';
+      tableauDo.push(arr[i]);
     }
 
 
@@ -58,7 +99,7 @@ function myFunction(arr) {
   document.getElementById("archive").innerHTML = out;
 }
 }
-  console.log(tableau);
+  // console.log(tableau);
 refreshJson();
 // function 
 function OnChangeCheckbox (checkbox) {
@@ -203,26 +244,39 @@ function handleDrop(e) {
   this.classList.remove('over');
     console.log("7");
     console.log(document.querySelectorAll('li'));
-    console.log(aJour());
-    let update = [];
-    for(let i = 0; i< document.querySelectorAll('li').length; i++){
-      
-      update.push((document.querySelectorAll('li')[i]).innerText);
+    let tableauToDo = [];
+  tableauToDo = Array.from(document.querySelectorAll('li'));
+  for(let i = 0; i< tableauToDo.length; i++){
+      tableauToDo[i] = {
+      tache: tableauToDo[i]['innerText'],
+      do: false
+
+  } 
+  tableauDo = Array.from(document.querySelectorAll('#do'));
+    for(let i = 0; i< tableauDo.length; i++){
+      tableauDo[i] = {
+      tache: tableauDo[i]['innerText'],
+      do: true
+
+  } 
+
+    tableauFinal = tableauToDo.concat(tableauDo);
+    }
   
-    }
-      console.log(tableau);
-      console.log(update);
-    for (let i = 0; i < update.length;i++)
-    {
-      if (update[i] == tableau[i])
-      {
-        console.log("p");
-      }
-      else{
-        console.log(update[i]);
-      }
-    }
-    return false;
+
+
+
+  }
+  console.log(tableauFinal);
+   function json() {
+
+   let data = new FormData();
+   data.append("json", JSON.stringify(tableauFinal));
+   fetch("ajax.php", {method: "POST", body: data})
+       .then((res) => res.text())
+       .then((data) => console.log(data));
+   };
+   json();
 }
 
 
@@ -256,11 +310,29 @@ let aJour = () => {
   for(let i = 0; i< document.querySelectorAll('li').length; i++){
     
     miseajour.push((document.querySelectorAll('li')[i]).innerText);
+
     return miseajour;
   }
   
 }
 
+
+// for(let i = 0; i < update.length; i++) {
+//   console.log (tableau);
+//   console.log(tableau[0])
+
+//   if (update[i] == tableau[i]){
+//     // console.log (tableau.value);
+//     // console.log (update.value);
+  
+//     console.log ("reussi");
+//   }else{
+//     console.log (tableau[i]);
+//     console.log (update[i]);
+//     console.log (typeof(tableau));
+//     console.log (typeof(update));
+//   }
+// }
 
 
 

@@ -15,7 +15,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" AND isset($_POST["launchReset"]) AND !
       $json = array_values($json); // Rebase !!!!!!!!!!!!!
       $json = json_encode($json, JSON_PRETTY_PRINT);
       file_put_contents('todo.json', $json);
-      header("location: index.php");
+
   }
 
 
